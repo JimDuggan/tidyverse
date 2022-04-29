@@ -2,6 +2,11 @@ library(purrr)
 
 x <- list(a=1:10, b=11:30)
 
+my_max <- function(v){
+  browser()
+  max(v)
+}
+
 my_range <- function (x){
   max(x) - min(x)
 }
