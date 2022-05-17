@@ -9,7 +9,8 @@ mh <- observations %>%
 
 s_mh <- mh %>% group_by(month) %>%
           summarise(AvrPeak=mean(PeakHour),
-                    MedianPeak=median(PeakHour))
+                    MedianPeak=median(PeakHour),
+                    SD=sd(PeakHour))
 
 ggplot(mh,aes(x=month,y=PeakHour,group=month,colour=as.factor(month)))+geom_boxplot()
 ggplot(mh,aes(x=PeakHour,fill=as.factor(month)))+geom_histogram(binwidth = 1)+facet_wrap(~month)
