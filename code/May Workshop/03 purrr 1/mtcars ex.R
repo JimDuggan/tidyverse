@@ -20,6 +20,11 @@ a1 <- map(mtcars,~{
 
 a2 <- map_df(mtcars,~{
   cat("processing element\n")
-  tibble(Mean=mean(.x),Min=min(.x),Max=max(.x))
-})
+  tibble(Mean=mean(.),Min=min(.),Max=max(.))
+},.id="Column")
+
+a3 <- map_df(mtcars,function(v){
+  cat("processing element\n")
+  tibble(Mean=mean(v),Min=min(v),Max=max(v))
+},.id="Column")
 
