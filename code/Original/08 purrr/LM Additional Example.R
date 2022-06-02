@@ -11,13 +11,13 @@ n_mpg <- mpg %>%
 
 # Taking in 2 vectors with map2: the data and the model
 plots <- map2(n_mpg$data,n_mpg$LM,~{
-  browser()
   ggplot(.x,aes(x=displ,y=cty))+geom_point()+
     geom_abline(intercept=coef(.y)[1],
                 slope=coef(.y)[2],
                 colour="red",
                 size=2)+
-    geom_smooth(method="lm")
+    geom_smooth(method="lm")+
+    geom_jitter()
 })
 
 ggarrange(plotlist=plots)
